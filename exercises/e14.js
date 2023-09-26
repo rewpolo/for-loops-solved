@@ -5,9 +5,39 @@
 // Array example: bankAccounts in /data/data.js
 // getClientsWithWrongBalance(bankAccounts) => [{ name: 'Name1', balance: 32, ... }, { name: 'Name2', balance: 3523, ... }]
 
-export function getClientsWithWrongBalance(array) {
+export function getClientsWithWrongBalance(accounts) {
   // Your code goes here...
+  const accountsWithIncorrectBalance = [];
 
+  for (const account of accounts) {
+    let depositSum = 0;
+    if (account.deposits) {
+      for (const deposit of account.deposits) {
+        depositSum += deposit; 
+      }
+    }
+
+    let withdrawalSum = 0;
+    if (account.withdrawals) {
+      for (const withdrawal of account.withdrawals) {
+        withdrawalSum += withdrawal;
+      }
+    }
+
+    const calculatedBalance = depositSum - withdrawalSum;
+
+    if (calculatedBalance !== account.balance) {
+      accountsWithIncorrectBalance.push({
+        id: account.id,
+        name: account.name,
+        balance: account.balance,
+        deposits: account.deposits,
+        withdrawals: account.withdrawals
+      });
+    }
+  }
+
+  return accountsWithIncorrectBalance;
 }
 
 

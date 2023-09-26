@@ -6,8 +6,17 @@
 
 export function getClientWithLeastPositiveBalance(array) {
   // Your code goes here...
-  
-}
+  let lowestBal = {balance: Infinity};
+  let zero = [];
+  for (let i = 0; i < array.length; i++) {
+      if(array[i].balance < lowestBal.balance && array[i].balance > 0) { 
+        lowestBal = array[i];      
+      } else if (array[i].balance < 0) {
+        return zero;
+      }
+  } return [lowestBal]; 
+} 
+
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-7"

@@ -10,7 +10,10 @@
 
 export function getAverage(array) {
   // Your code goes here...
-
+  var avg = 0;
+  for (var number of array) {
+    avg += number;
+  } return avg / array.length;
 }
 
 
@@ -23,8 +26,27 @@ export function getAverage(array) {
 
 export function getStringSum(str) {
   // Your code goes here...
-
+  var arr = str.match(/[0-9]/g);
+  var sum = '';
+  if(!arr) {
+      return 0;
+  }else {
+    for (var x = 0; x < arr.length; x++) {
+        var result = sum += arr[x];
+    }
+    let numberArray = [];
+    var total = 0;
+    for (let i = 0; i < result.toString().length; i++) {
+          numberArray.push(parseInt(result.toString()[i]));
+          total += numberArray[i];
+    }return total; 
+  }
 }
+
+console.log(getStringSum('GHIUJUHSG'));
+
+
+
 
 
 // === TEST YOURSELF ===
