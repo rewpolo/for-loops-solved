@@ -14,7 +14,6 @@ export function getAllClientNames(array) {
   } return newArray;
 }
 
-console.log(getAllClientNames(bankAccounts));
 
 
 

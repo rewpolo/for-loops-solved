@@ -8,7 +8,6 @@ export function getAllAccountsWithSumsOfDepositsLess2000(array) {
   let sum = [];
   for (let i = 0; i < array.length; i++) {
     let x = array[i].deposits || [];
-    let newArr = [];
     let depSum = 0
     for (let j = 0; j < x.length; j++) {
       depSum += x[j];
